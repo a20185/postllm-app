@@ -134,6 +134,44 @@ const ApiKeysTab = () => {
 						</a>
 					</p>
 				</div>
+				<div>
+					<label
+						htmlFor="openaihost"
+						className="block text-sm font-medium leading-6 text-white"
+					>
+						OpenAI API Endpoint
+					</label>
+					<div className="mt-2">
+						<input
+							defaultValue={config?.apiKeys?.openAIEndpoint ?? ""}
+							type="text"
+							name="openaihost"
+							id="openaihost"
+							className="block w-full px-2 rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+							placeholder="https://api.openai.com"
+							aria-describedby="openai-description"
+							onChange={(e) => {
+								updateConfig({
+									...config,
+									apiKeys: {
+										...config?.apiKeys,
+										openAIEndpoint: e.target.value,
+									},
+								});
+							}}
+						/>
+					</div>
+					{/* <p className="mt-2 text-xs" id="openai-description">
+						You can find your API key here{" "}
+						<a
+							target="_blank"
+							className="hover:underline"
+							href="https://platform.openai.com/account/api-keys"
+						>
+							https://platform.openai.com/account/api-keys
+						</a>
+					</p> */}
+				</div>
 			</div>
 		</>
 	);

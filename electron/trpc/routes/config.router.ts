@@ -16,11 +16,12 @@ export const configRouter = router({
 	}),
 	hasLicense: procedure.output(z.boolean()).query(async ({ input, ctx }) => {
 		const nodeEnv = process.env.NODE_ENV;
-		if (nodeEnv === "development") return true;
+		// if (nodeEnv === "development") return true;
 
-		const _config = await config.get();
-		if (!_config) return false;
-		return _config.licenseValid;
+		// const _config = await config.get();
+		// if (!_config) return false;
+		// return _config.licenseValid;
+		return true;
 	}),
 	updateLicense: procedure
 		.input(z.object({ licenseKey: z.string() }))
